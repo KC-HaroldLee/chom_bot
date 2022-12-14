@@ -4,6 +4,9 @@ import os
 import asyncio
 
 client = commands.Bot(command_prefix="$$", intents=discord.Intents.all())
+with open("./token.txt") as token_file :
+    token = token_file.readline()
+
 
 @client.event
 async def on_ready():
@@ -22,6 +25,6 @@ async def on_command_error(ctx, error):
 async def main():
     async with client:
         await load()
-        await client.start("MTA1MTg3OTkwMTE1MTY0NTc4OA.GU5aHD.FOH3CUVG3pPnkpPH_Xx5CEqMaz8iaOUhxutZTw")
+        await client.start(token)
 
 asyncio.run(main())
